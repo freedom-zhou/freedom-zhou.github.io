@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="不同版本Linux系统的镜像源配置——解决软件包安装慢的问题Ubuntu20 下配置镜像源Ubuntu 安装软件的工具为apt镜像源列表配置文件路径：/etc/apt/sources.list
+亲测好用的镜像源中国科学技术大学：http://mirrors.ustc.edu.cn/ubuntu
+若为" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>不同版本Linux系统的镜像源配置 | 阿东的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="不同版本Linux系统的镜像源配置——解决软件包安装慢的问题Ubuntu20 下配置镜像源Ubuntu 安装软件的工具为apt镜像源列表配置文件路径：&#x2F;etc&#x2F;apt&#x2F;sources.list 亲测好用的镜像源中国科学技术大学：http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu 若为带有图像界面的Ubuntu，可根据以下步骤自动选择最佳镜像源：Software &amp; Upda">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不同版本Linux系统的镜像源配置">
+<meta property="og:url" content="http://example.com/2020/11/18/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACLinux%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="阿东的博客">
+<meta property="og:description" content="不同版本Linux系统的镜像源配置——解决软件包安装慢的问题Ubuntu20 下配置镜像源Ubuntu 安装软件的工具为apt镜像源列表配置文件路径：&#x2F;etc&#x2F;apt&#x2F;sources.list 亲测好用的镜像源中国科学技术大学：http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu 若为带有图像界面的Ubuntu，可根据以下步骤自动选择最佳镜像源：Software &amp; Upda">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-18T06:30:17.110Z">
+<meta property="article:modified_time" content="2020-11-18T08:18:10.133Z">
+<meta property="article:author" content="freedom-zhou">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="\css\images\favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="阿东的博客" rel="home">阿东的博客</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-不同版本Linux系统的镜像源配置" class="post-不同版本Linux系统的镜像源配置 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      不同版本Linux系统的镜像源配置
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://example.com/2020/11/18/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACLinux%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE/" data-id="ckhn4vf240000istmc8lxbi6o" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="不同版本Linux系统的镜像源配置——解决软件包安装慢的问题"><a href="#不同版本Linux系统的镜像源配置——解决软件包安装慢的问题" class="headerlink" title="不同版本Linux系统的镜像源配置——解决软件包安装慢的问题"></a>不同版本Linux系统的镜像源配置——解决软件包安装慢的问题</h1><h2 id="Ubuntu20-下配置镜像源"><a href="#Ubuntu20-下配置镜像源" class="headerlink" title="Ubuntu20 下配置镜像源"></a>Ubuntu20 下配置镜像源</h2><p>Ubuntu 安装软件的工具为apt<br>镜像源列表配置文件路径：<code>/etc/apt/sources.list</code></p>
+<p>亲测好用的镜像源<br>中国科学技术大学：<br><a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/ubuntu">http://mirrors.ustc.edu.cn/ubuntu</a></p>
+<p>若为带有图像界面的Ubuntu，可根据以下步骤自动选择最佳镜像源：<br>Software &amp; Updates -&gt; Ubuntu Software -&gt; Download from: (点击下拉列表) -&gt; Other -&gt;Select Best Server<br>等待一段时间后，点击Choose Server，Ubuntu就自动配置好了当前访问速度最快的镜像源</p>
+<h2 id="Deepin-下配置镜像源"><a href="#Deepin-下配置镜像源" class="headerlink" title="Deepin 下配置镜像源"></a>Deepin 下配置镜像源</h2><p>Deepin 安装软件的工具为apt<br>镜像源列表配置文件路径：<code>/etc/apt/sources.list</code>  </p>
+<p>Deepin15系统设置支持换源</p>
+<p>Deepin20系统设置不支持换源了，因为换源可能会造成各种问题，所以官方去掉了这个功能，实在要换只能自己修改sources.list`文件</p>
+<h2 id="CentOS-下配置镜像源"><a href="#CentOS-下配置镜像源" class="headerlink" title="CentOS 下配置镜像源"></a>CentOS 下配置镜像源</h2><p>CenOS 安装软件的工具为yum<br>镜像源列表配置文件路径：<code>/etc/yum.repos.d/CentOS-Base.repo</code></p>
+<p>亲测好用：<br><a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/centos/">https://mirrors.ustc.edu.cn/centos/</a><br>中国科技大学镜像源 使用帮助：<br><a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/help/centos.html">http://mirrors.ustc.edu.cn/help/centos.html</a></p>
+<hr>
+<p>国内镜像源</p>
+<ol>
+<li>企业贡献：<br>搜狐开源镜像站：<a target="_blank" rel="noopener" href="http://mirrors.sohu.com/">http://mirrors.sohu.com/</a><br>网易开源镜像站：<a target="_blank" rel="noopener" href="http://mirrors.163.com/">http://mirrors.163.com/</a></li>
+<li>大学教学：<br>北京理工大学：<br><a target="_blank" rel="noopener" href="http://mirror.bit.edu.cn/">http://mirror.bit.edu.cn</a> (IPv4 only)<br><a target="_blank" rel="noopener" href="http://mirror.bit6.edu.cn/">http://mirror.bit6.edu.cn</a> (IPv6 only)<br>北京交通大学：<br><a target="_blank" rel="noopener" href="http://mirror.bjtu.edu.cn/">http://mirror.bjtu.edu.cn</a> (IPv4 only)<br><a target="_blank" rel="noopener" href="http://mirror6.bjtu.edu.cn/">http://mirror6.bjtu.edu.cn</a> (IPv6 only)<br><a target="_blank" rel="noopener" href="http://debian.bjtu.edu.cn/">http://debian.bjtu.edu.cn</a> (IPv4+IPv6)<br>兰州大学：<a target="_blank" rel="noopener" href="http://mirror.lzu.edu.cn/">http://mirror.lzu.edu.cn/</a><br>厦门大学：<a target="_blank" rel="noopener" href="http://mirrors.xmu.edu.cn/">http://mirrors.xmu.edu.cn/</a><br>清华大学：<br><a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/">http://mirrors.tuna.tsinghua.edu.cn/</a> (IPv4+IPv6)<br><a target="_blank" rel="noopener" href="http://mirrors.6.tuna.tsinghua.edu.cn/">http://mirrors.6.tuna.tsinghua.edu.cn/</a> (IPv6 only)<br><a target="_blank" rel="noopener" href="http://mirrors.4.tuna.tsinghua.edu.cn/">http://mirrors.4.tuna.tsinghua.edu.cn/</a> (IPv4 only)<br>天津大学：<a target="_blank" rel="noopener" href="http://mirror.tju.edu.cn/">http://mirror.tju.edu.cn/</a><br>中国科学技术大学：<br><a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/">http://mirrors.ustc.edu.cn/</a> (IPv4+IPv6)<br><a target="_blank" rel="noopener" href="http://mirrors4.ustc.edu.cn/">http://mirrors4.ustc.edu.cn/</a><br><a target="_blank" rel="noopener" href="http://mirrors6.ustc.edu.cn/">http://mirrors6.ustc.edu.cn/</a><br>东北大学：<br><a target="_blank" rel="noopener" href="http://mirror.neu.edu.cn/">http://mirror.neu.edu.cn/</a> (IPv4 only)<br><a target="_blank" rel="noopener" href="http://mirror.neu6.edu.cn/">http://mirror.neu6.edu.cn/</a> (IPv6 only)<br>电子科技大学：<a target="_blank" rel="noopener" href="http://ubuntu.uestc.edu.cn/">http://ubuntu.uestc.edu.cn/</a></li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/11/18/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACLinux%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE/">
+    <time datetime="2020-11-18T06:30:17.110Z" class="entry-date">
+        2020-11-18
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2020/11/18/Linux%E4%B8%ADCtrl-Z%E5%92%8CCtrl-C%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev"><span class="meta-nav">←</span> Linux中Ctrl+Z和Ctrl+C的区别</a></span>
+    
+    
+        <span class="nav-next"><a href="/2020/11/18/Mysql%E7%9A%84%E4%B8%89%E7%A7%8D%E6%8E%92%E5%90%8D%E6%96%B9%E5%BC%8F/" rel="next">Mysql的三种排名方式 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/18/Web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">Web前端技术思维导图</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/Python%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">Python思维导图</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/JavaEE%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">JavaEE思维导图</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/JavaSE%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">JavaSE思维导图</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/Linux%E4%B8%ADCtrl-Z%E5%92%8CCtrl-C%E7%9A%84%E5%8C%BA%E5%88%AB/">Linux中Ctrl+Z和Ctrl+C的区别</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/" rel="tag">MarkDown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xmind/" rel="tag">xmind</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/xmind/" style="font-size: 20px;">xmind</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 freedom-zhou
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
